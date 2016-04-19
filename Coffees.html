@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" ng-app="LareinaCoffeeReviewApp">
+<head>
+<style>
+
+</style>
+</head>
+<body>
+<a href="index.html">Back To Home</a>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+        <!--Sidebar content-->
+
+        Search: <input ng-model="query">
+
+      </div>
+      <div class="col-md-10" ng-controller="CoffeeListCtrl">
+
+
+		<table style="width:100%" class="table">
+			<tr>
+				<td>Reviews:</td>
+				<td>Brand:</td>
+				<td>Coffee Title:</td>
+				<td>Country:</td>
+			</tr>
+
+			<tr ng-repeat="coffee in coffees | filter:query | orderBy:orderProp">
+
+					<td><a ng-href="#/reviews/{{coffee.id}}" ng-click="onReview(coffee.id)">Reviews</a></td>
+					<td>{{coffee.brand}}</td>
+					<td>{{coffee.name}}</td>
+					<td>{{coffee.country}}</td>
+
+			</tr>
+		</table>
+      </div>
+    </div>
+  </div>
+</body>

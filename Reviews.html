@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" ng-app="LareinaCoffeeReviewApp">
+<head>
+ <style type="TEXT/css">
+
+</style>
+  <meta charset="utf-8">
+  <title>My Coffee Review</title>
+<!--  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>  
+  <script src="app.js"></script>-->
+</head>
+
+<body ng-controller="CoffeeListCtrl">
+
+
+
+<a href="index.html">Back To Home</a>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+		<b>Reviews for {{currentCoffee.name}} from {{currentCoffee.brand}}:</b>
+		</div>
+		<div class="col-md-10" ng-controller="CoffeeListCtrl">
+<table style="width:100%" class="table">
+<tr>
+<td>Reviewer:</td>
+<td>Comment:</td>
+<td>Rating:</td>
+</tr>
+
+<tr ng-repeat="review in currentCoffee.reviews | filter:query ">
+<td>{{review.reviewer}}</td>
+<td>{{review.comment}}</td>
+<!--<td>{{review.rating}}</td>-->
+<td><uib-rating ng-model="review.rating" max="10" read-only="true"  aria-labelledby="default-rating">{{review.rating}}</uib-rating></td>
+<tr>
+</table>
+      </div>
+    </div>
+  </div>
+ </body>
+</html>
